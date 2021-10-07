@@ -1,0 +1,91 @@
+h1 {
+    size: 10px;
+}
+
+body {
+}
+
+p {
+}
+
+canvas { 
+  padding: 0;
+  margin: auto;
+  display: block;
+}
+
+hr.round {
+  border-top: 2px solid #000000;   
+  border-radius: 1px; 
+}
+
+table.clean{
+    border: 0;
+    margin: auto;
+    max-width: 600px;
+}
+
+.sidenav {
+    width: 130px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 20px; 
+    left: 10px; 
+    background: #a88b6c; 
+    overflow-x: hidden; 
+    padding: 8px 0; 
+}
+
+.sidenav a { 
+    padding: 6px 8px 6px 16px; 
+    text-decoration: none; 
+    font-size: 18px; 
+    color: #000000; 
+    display: block; 
+}
+
+.sidenav a:hover { 
+    color: #333333; 
+}
+
+.topguide ul{
+  list-style-type: none;   
+  margin: 0;   
+  padding: 0;
+}
+.topguide li{
+  display: inline;
+}
+
+.topguide a{
+  padding: 5px 5px 5px 5px;
+  font-size: 18px;
+  color: #000000;
+  background: #a2ab98;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.project-name{
+  font-size: 24px;
+  text-decoration: none;
+  color:inherit;
+}
+.project-name:hover{
+  
+}
+
+body.dark-mode{
+  background-image:  url("dark1.png");
+  background-repeat: repeat -xy;
+  color: white; 
+}
+a.dark-mode:hover{
+  color: #424242;
+}
+
+body.light-mode{
+  background-image:  url("light1.png");
+  background-repeat: repeat -xy;
+  color: black;
+}
