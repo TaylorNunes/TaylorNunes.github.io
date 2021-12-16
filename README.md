@@ -1,2 +1,2 @@
 # TaylorNunes.github.io
-This is a site for my personal javascript practice and some small fun projects.
+This is personal website that talkes about who I am, my projects, and my research.
