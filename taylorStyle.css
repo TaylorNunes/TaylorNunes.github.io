@@ -6,13 +6,64 @@ body {
   margin: 0;
 }
 
-p {
-}
-
 canvas { 
   padding: 0;
   margin: auto;
   display: block;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #303030;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: #D3D3D3;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar img {
+  display: block;
+  border-radius: 50%;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main{
+  margin-left: 250px;
+  padding: 50px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.main h1{
+  font-size: 50px;
+}
+
+.main h2{
+  font-size: 40px;
+}
+
+.main h3{
+  font-size: 30px;
+}
+
+.main a{
+  text-decoration: none;
+  color: #000;
 }
 
 hr.round {
@@ -20,46 +71,12 @@ hr.round {
   border-radius: 1px; 
 }
 
-/* Header for the main page */
-.header {
-  padding: 5px;
-  text-align: center;
-  background: linear-gradient(to top left, #006600 0%, #669999 115%);
-  color: #000;
-  font-size: 3.0vw;
-}
-
-/* Header for the other pages  */
-.header2 {
-  padding: 10px;
-  text-align: center;
-  background: linear-gradient(to top left, #009933 0%, #996633 120%);
-  color: #222;
-  font-size: 30px;
-}
-
 .icon {
-  padding: .5vw;
-  width: 3.0vw;
+  padding: 3px;
+  width: 30px;
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
-}
-
-.project_bubble {
-  padding: 20px;
-}
-.project_bubble p{
-  text-align: left;
-  margin: auto;
-}
-.project_bubble h3{
-  text-align: left;
-  margin: auto;
-}
-.project_bubble img{
-  width:calc(100px + 2.0vw);
-  padding: 0.5vw;
 }
 
 .navbar {
@@ -212,26 +229,6 @@ table.clean{
   text-decoration: none;
   border-radius: 4px;
 }
-
-.project-name{
-  font-size: 24px;
-  text-decoration: none;
-  color:inherit;
-}
-
-.my_md{
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-
-}
-
-.my_md img{
-  width: 40vw;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 
 body.dark-mode{
   background-image:  url("dark1.png");

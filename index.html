@@ -12,27 +12,58 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="taylorStyle.css" type="text/css">
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-
-<div class="header">
-  <h2>Taylor C. Nunes</h2>
-  <a href="https://github.com/TaylorNunes"><img class="icon" src="logos/github_logo.png"></img></a>
-  <a href="https://www.linkedin.com/in/taylor-nunes-090b35114/"><img class="icon" src="logos/linkedin_logo.png"></img></a>
-  <a href="mailto:taylorcnunes@gmail.com"><img class="icon" src="logos/mail_logo.png"></img></a>
-  <a href="documents/Taylor_Nunes_Resume.pdf"><img class="icon" src="logos/resume_logo.png"></img></a>
+<body class="light-mode">
+<div id="mySidebar" class="sidebar">
+  <img src="images/photo_profile.jpg"></img>
+  <a href="#About">About</a>
+  <a href="#Projects">Projects</a>
+  <a href="#Research">Research</a>
+  <a href="#">Contact</a>
 </div>
 
-<ul class="navbar">
-  <li><a href="./index.html">Home</a></li>
-  <li><a href="./projects/index.html">Projects</a></li>
-  <li><a href="./research/index.html">Research</a></li>
-</ul>
+<div class="main">
+  <h1 id="About">Taylor C. Nunes</h1>
+  <a href="https://github.com/TaylorNunes"><img class="icon" src="logos/github_logo.png"></img></a>
+  <a href="https://www.linkedin.com/in/taylor-nunes-090b35114/"><img class="icon"
+      src="logos/linkedin_logo.png"></img></a>
+  <a href="mailto:taylorcnunes@gmail.com"><img class="icon" src="logos/mail_logo.png"></img></a>
+  <a href="documents/Taylor_Nunes_Resume.pdf"><img class="icon" src="logos/resume_logo.png"></img></a>
+  <p>I am a data-driven engineer who creates technical solutions to real world problems through software. 
+  I assess the fundamental principles behind problems to develop modular, scalable, and robust solutions through experimentation and iteration. 
+  <h3>Education</h3>
+  <p><ul>
+    <li>Osaka University, M.S. Physics, 2019 - 2021</li>
+    <li>North Carolina State University, B.S. Mechanical Engineering, 2014 - 2018</li>
+  </ul></p>
+  </p>
+  <br><br><br><hr> 
 
-<body class="light-mode">
-  <div style="padding-top:50px">
-    <div class="column"><div class="bio"> <h3>About me</h3>My name is Taylor and I have a passion for data. Over the past few years I have worked in data analysis while obtaining my master's degree in physics at Osaka University. Before that, I worked as an engineer designing test systems. Recently I have taken a strong interest in machine learning and am working on personal projects with deep learning. I strive to understand the data in the world around us and utilize it to help others. In my free time I deck out my home with home automation gadgets, study Japanese, and go hiking.  </div></div>
-    <div class="column"><div class="bioimg"><img src="images/portrait.jpg"></img></div></div>
-  </div>
+  <h2 id="Projects">Projects</h2>
+  <h3><a href="../Art/index.html"> Random Walk Art</a></h3>
+    <p> A javascript program that generates art on a pixel by pixel basis using a random walk algorithm.</p>
+  <h3><a href="https://github.com/TaylorNunes/maskWho">MaskWho</a></h3>
+    <p> Deep learning image classification for detection of a face mask. </p>
+  <br><br><br><hr> 
+
+  <h2 id="Research">Research</h2>
+  <h3><strong>Thesis</strong></h3>
+  <p>If you are interested in detector development for particle physics applicaitons please check out my <a href="documents/Taylor_Nunes_Thesis.pdf">thesis</a>.</p>
+  <h3><strong>Additional reasearch</strong></h3>
+  <p>During my master's research at Osaka University, I worked in the <a href="https://koto.kek.jp/">KOTO</a> Collaboration, studying kaon physics. In addition to the work summarized in my thesis, I conducted research in developing algorithms to improve data analysis. I developed algorithms for event by event noise classification. I processed digital waveforms for separation of overlapping peaks. I also worked with raspberry pi's for data collection with gpios and front-end displays for processed data using PHP and HTML. </p>
+  <p>I worked primarily in C++ and python, using the <a href="https://root.cern/">ROOT</a> framework.</p>
+  <h3><strong>Conferences</strong></h3>
+  <p>In addition to weekly presentations and giving colloquiums on different papers, I participated in the following conferences:</p>
+  <p><strong>T. C. Nunes</strong>, "Analysis of Waveforms in the KOTO Experiment at J-PARC", presented at The Physical Society of Japan 2020 Autumn Meeting.
+  </p>
+  <p><strong>T. C. Nunes</strong>, "Design and Performance Evaluation of a Low-Mass
+      In-Beam Charged Particle Detector for the KOTO Experiment at J-PARC", presented at The Physical Society of Japan 2021 Annual Meeting.
+  </p>
+
+
+
+</div>
 </body>
+
 </html>
