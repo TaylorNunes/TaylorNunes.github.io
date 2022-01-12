@@ -239,6 +239,7 @@ body.dark-mode{
   background-repeat: repeat -xy;
   color: white; 
 }
+
 a.dark-mode:hover{
   color: #424242;
 }
