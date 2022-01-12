@@ -66,6 +66,32 @@ canvas {
   color: #000;
 }
 
+@media only screen and (max-width: 600px) {
+  .sidebar{
+    padding-top: 20px;
+    position: static;
+    width: 100%;
+    height: 350px;
+  }
+  .main{
+    margin-left: 0px;
+    font-size: 20px;
+    padding: 20px;
+  }
+  .main h1{
+    font-size: 40px;
+  }
+  .main h2{
+    font-size: 30px;
+  }
+  .main h3{
+    font-size: 20px;
+  }
+}
+.project{
+  text-decoration: underline;
+}
+
 .project a:hover{
   color: #505050;
 }
