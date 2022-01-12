@@ -66,6 +66,10 @@ canvas {
   color: #000;
 }
 
+.project a:hover{
+  color: #505050;
+}
+
 hr.round {
   border-top: 2px solid #000000;   
   border-radius: 1px; 
