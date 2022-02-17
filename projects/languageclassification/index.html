@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Language Classification</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="/taylorStyle.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body class="light-mode">
+  <div id="mySidebar" class="sidebar">
+    <a href="#About">About</a>
+    <a href="#Data">Data</a>
+  </div>
+
+  <div class="main">
+    <h2 id="About">About</h2>
+    <p>
+      As someone who has been learning Japanese for several years, I have developed an interest in linguistics and the differences between the two langugages.
+      Japanese uses a character system that has three different scripts. These are hiragana, katakana, and kanji. 
+      English of course doesnt use any of these scipts but uses latin characters instead. 
+      If one were to classify English and Japanese sentences, it would be rather easy solely based on the characters, but it would also be less interesting. 
+      To better exemplify the differences in the languages, I wanted to convert both to the same character system.
+      Luckily there is a standard format of converting Japanese to roman characters (romaji) called hepburn. 
+      This allows a rather direct mapping of Japanese sounds.
+      This is because, both hiragana and katakana are phonetic, allowing direct conversion, and kanji can be converted to hiragana.
+      Of course the other option would be to convert English words into hiragana or katakana, but due to the larger varity of phonemes in English, there would be a significant amount of loss.
+      Therefore this project compares ans classifies English and Japanese sentences where the Japanese sentences are written in romaji.
+    </p>
+
+    <h2 id="Data">Data</h2>
+    <h3>Collection</h3>
+    <p>
+      To classify each language we need a large selection of Japanese and English sentences. 
+      One good source of example sentences well known among language learners is the website <a href="https://tatoeba.org/en/">tatoeba</a>.
+      From tatoeba I have downloaded the entire selection of Japanese and English, which consist of 200,000+ and 1,500,000+ sentences respectively.
+      The Japanese sentences are shown in the traditional script, so to convert to hepburn I used a python package called <a href="https://github.com/polm/cutlet">cutlet</a>.
+      One key difference between Japanese and English is the lack of spaces in Japanese. 
+      In English we can easily separate words by spaces, but in Japanese we need an additional tokenizer to separate the words. 
+      Cutlet uses MeCab and Unidict for tokenization of Japanese words.
+    </p>
+
+    <h3>Data Cleaning</h3>
+    <p>
+      Once both languages are in roman characters we need to further clean the data to be easier to process.
+      These steps include:
+      <ul>
+        <li>Changing all characters to lowercase</li>
+        <li>Removing all punctuation from the sentences</li>
+        <li>English sentence count is reduced to match that of Japanese</li>
+      </ul>
+    </p>
+    <h3>Feature Addition</h3>
+    <p>
+      Additional features are then added to the dataset. These are calculated for each sentence and include:
+      <ul>
+        <li>Number of consecutive vowels</li>
+        <li>Number of consecutive consonants</li>
+        <li>Average vowel density per word</li>
+        <li>Percentage of words ending in vowels</li>
+        <li>Average word length</li>
+        <li>Average word count</li>
+        <li>Number of unique characters</li>
+        <li>Frequency of each character</li>
+      </ul>
+    </p>
+  </div>
+</body>
+
+</html>
