@@ -13,6 +13,8 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="/taylorStyle.css" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="light-mode">
   <div id="mySidebar" class="sidebar">
@@ -32,7 +34,7 @@
       This allows a rather direct mapping of Japanese sounds.
       This is because, both hiragana and katakana are phonetic, allowing direct conversion, and kanji can be converted to hiragana.
       Of course the other option would be to convert English words into hiragana or katakana, but due to the larger varity of phonemes in English, there would be a significant amount of loss.
-      Therefore this project compares ans classifies English and Japanese sentences where the Japanese sentences are written in romaji.
+      Therefore this project compares and classifies English and Japanese sentences where the Japanese sentences are written in romaji.
     </p>
 
     <h2 id="Data">Data</h2>
@@ -54,23 +56,56 @@
       <ul>
         <li>Changing all characters to lowercase</li>
         <li>Removing all punctuation from the sentences</li>
-        <li>English sentence count is reduced to match that of Japanese</li>
+        <li>The dataset was also reduced to 100,000 sentences for each</li>
       </ul>
     </p>
-    <h3>Feature Addition</h3>
+    <h3>Input Features</h3>
     <p>
-      Additional features are then added to the dataset. These are calculated for each sentence and include:
-      <ul>
-        <li>Number of consecutive vowels</li>
-        <li>Number of consecutive consonants</li>
-        <li>Average vowel density per word</li>
-        <li>Percentage of words ending in vowels</li>
-        <li>Average word length</li>
-        <li>Average word count</li>
-        <li>Number of unique characters</li>
-        <li>Frequency of each character</li>
-      </ul>
+      The classification is done solely by the frequency of letters in each sentence. 
+      The letter density was calculated for each letter, this is \(\frac{\text{Number of specific letter}}{\text{Number of total letters}}\).  
+      This results in 26 input features.
     </p>
+    <h2>Preprocessing</h2>
+    <p>
+      The data first separated into a training set and a test set, with a 99:1 ratio. This leaves 2,000 sentences for testing after the model is built.
+
+      The data is processed using <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">principal component analysis</a>. This is a feature extraction technique that allows the data to be transformed into its principal components. 
+      PCA works by calculating the covariance matrix for all of the input features, and calculating its eigenvectors.
+      The eigenvectors are the principal components, of the directions with the largest variance in feature space.
+      These directions are not specific features, but are a linear combination of all the features. 
+      The dataset is then transformed into this new basis system.
+      For this project, I selected the first 2 principal components which are easily visable in 2 dimensions. 
+    </p>
+    <img src="images/pca1_matrix_weights.png"></img>
+    <img src="images/pca2_matrix_weights.png"></img>
+    <p>
+      The images above represent the magnitude of the transformation weights in the first and second principal axes.
+      These correlate to the amount of variance explainable by each letter in the principal axis. 
+      This is different than the classifying power of each letter because there correlations between each letter.
+      We can then normalize these graphs by the principal axis's explainable variance.
+      This shows us the amount of total variance explainable by each letter in the principal axis.
+    </p>
+    <img src="images/matrix_weights.png"></img>
+
+    <h2>Model</h2>
+    <p>
+      Using the first 2 principal components, a logistic regression model was trained. 
+      Below we plot the 198,000 training sentences in the training set. 
+      The shaded regions in the background represent the classification regions for each language. 
+      There is 97.5% accuracy for the training data.  
+    </p>
+    <img src="images/decision_logreg.png"></img>
+    <br>
+    <p>
+      Lets run the test data and see how it performs. The test data also performs well with an accuracy of 97.1 %accuracy
+      There is a difference of 0.38% between the training and test data. 
+      When comparing to the standard error of the classification prediction we can see that it is within 1 standard deviation. 
+      \[ err = \frac{\sqrt{57}}{2000} = 0.38\% \]
+      Where 57 is the number of misclassified sentences and 2000 is the total sentences tested.
+    </p>
+    <img src="images/decision_logreg_test.png"></img>
+
+
   </div>
 </body>
 
