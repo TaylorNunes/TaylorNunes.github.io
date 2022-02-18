@@ -63,7 +63,13 @@ canvas {
 
 .main a{
   text-decoration: none;
-  color: #303030;
+  color: #555;
+}
+
+.main img{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -86,6 +92,9 @@ canvas {
   }
   .main h3{
     font-size: 20px;
+  }
+  .main img{
+    width: 80%;
   }
 }
 .project{
