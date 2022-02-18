@@ -11,7 +11,7 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
-  <link rel="stylesheet" href="/taylorStyle.css" type="text/css">
+  <link rel="stylesheet" href="../../taylorStyle.css" type="text/css">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,6 +20,8 @@
   <div id="mySidebar" class="sidebar">
     <a href="#About">About</a>
     <a href="#Data">Data</a>
+    <a href="#Preprocessing">Preprocessing</a>
+    <a href="#Model">Model</a>
   </div>
 
   <div class="main">
@@ -65,7 +67,7 @@
       The letter density was calculated for each letter, this is \(\frac{\text{Number of specific letter}}{\text{Number of total letters}}\).  
       This results in 26 input features.
     </p>
-    <h2>Preprocessing</h2>
+    <h2 id="Preprocessing">Preprocessing</h2>
     <p>
       The data first separated into a training set and a test set, with a 99:1 ratio. This leaves 2,000 sentences for testing after the model is built.
 
@@ -76,8 +78,9 @@
       The dataset is then transformed into this new basis system.
       For this project, I selected the first 2 principal components which are easily visable in 2 dimensions. 
     </p>
-    <img src="images/pca1_matrix_weights.png"></img>
-    <img src="images/pca2_matrix_weights.png"></img>
+    <img class="plot" src="images/pca1_matrix_weights.png"></img>
+    <br>
+    <img class="plot" src="images/pca2_matrix_weights.png"></img>
     <p>
       The images above represent the magnitude of the transformation weights in the first and second principal axes.
       These correlate to the amount of variance explainable by each letter in the principal axis. 
@@ -85,25 +88,25 @@
       We can then normalize these graphs by the principal axis's explainable variance.
       This shows us the amount of total variance explainable by each letter in the principal axis.
     </p>
-    <img src="images/matrix_weights.png"></img>
+    <img class="plot" src="images/matrix_weights.png"></img>
 
-    <h2>Model</h2>
+    <h2 id="Model">Model</h2>
     <p>
       Using the first 2 principal components, a logistic regression model was trained. 
       Below we plot the 198,000 training sentences in the training set. 
       The shaded regions in the background represent the classification regions for each language. 
       There is 97.5% accuracy for the training data.  
     </p>
-    <img src="images/decision_logreg.png"></img>
+    <img class="plot" src="images/decision_logreg.png"></img>
     <br>
     <p>
-      Lets run the test data and see how it performs. The test data also performs well with an accuracy of 97.1 %accuracy
+      Lets run the test data and see how it performs. The test data also performs well with an accuracy of 97.1%.
       There is a difference of 0.38% between the training and test data. 
       When comparing to the standard error of the classification prediction we can see that it is within 1 standard deviation. 
       \[ err = \frac{\sqrt{57}}{2000} = 0.38\% \]
       Where 57 is the number of misclassified sentences and 2000 is the total sentences tested.
     </p>
-    <img src="images/decision_logreg_test.png"></img>
+    <img class="plot" src="images/decision_logreg_test.png"></img>
 
 
   </div>
