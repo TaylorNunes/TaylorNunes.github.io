@@ -112,13 +112,24 @@
     <img class="plot" src="images/decision_logreg.png"></img>
     <br>
     <p>
-      Lets run the test data and see how it performs. The test data also performs well with an accuracy of 97.1%.
+      The test data was then tested to see how it performs. It also performs well with an accuracy of 97.1%.
       There is a difference of 0.38% between the training and test data. 
       When comparing to the standard error of the classification prediction we can see that it is within 1 standard deviation. 
       \[ err = \frac{\sqrt{57}}{2000} = 0.38\% \]
       Where 57 is the number of misclassified sentences and 2000 is the total sentences tested.
     </p>
     <img class="plot" src="images/decision_logreg_test.png"></img>
+    <h2 id='Improvements'>Improvements</h2>
+    <p>
+      Since this model only looks at the frequency of letters it does not take into account the location of letters to other letters.
+      This would most likely contain more informaion which could be used for classification.
+      A simple way to take into account locations of different letters would be to check the frequency of different letter combinations.
+      To get the letter combinations I took the cartesian product of all possible characters (26 alpha characters plus the space character).
+      This resulted in an additional 729 features.
+      I again used principal component analyis and looked at the first two principal components. 
+      The result is a much clearer separation with a classification accuracy of 99.85%. The test sample is shown below. 
+    </p>
+    <img class="plot" src="images/decision_logreg_test_improved.png"></img>
 
 
   </div>
