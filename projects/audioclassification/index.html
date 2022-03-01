@@ -30,10 +30,10 @@
     <h2 id="Summary">Summary</h2>
     <p>
       <ul>
-        <li>Collected 200,000 English and Japanese sentences</li>
-        <li>Performed principal component analysis based on letter frequency</li>
-        <li>Trained a logistic regression model</li>
-        <li>Obtained a classification accuracy of <strong>97%</strong></li>
+        <li>Deep learning classification of Japanese and English audio</li>
+        <li>Audio conversion to mel spectrograms</li>
+        <li>Convolutional neural network on mel spectrograms</li>
+        <li>Hyperparameter tuning for optimization</li>
       </ul>
       <img class="plot" src="images/decision_logreg_test.png"></img>
     </p>
@@ -84,9 +84,9 @@
       The input is a 2D mel-spectrogram and the output is a binary classifier,
       The model consists of:
       <ul>
-        <li>2 \times Conv2D + MaxPooling2D, 4 filters, 3\times3 kernel</li>
-        <li>2 \times Conv2D + MaxPooling2D, 8 filters, 3\times3 kernel</li>
-        <li>2 \times Conv2D + MaxPooling2D, 16 filters, 3\times3 kernel</li>
+        <li>2 \(\times\) Conv2D + MaxPooling2D, 4 filters, 3\(\times\)3 kernel</li>
+        <li>2 \(\times\) Conv2D + MaxPooling2D, 8 filters, 3\(\times\)3 kernel</li>
+        <li>2 \(\times\) Conv2D + MaxPooling2D, 16 filters, 3\(\times\)3 kernel</li>
         <li>Flattening </li>
         <li>Dense layer, 64 nodes </li>
         <li>Output layer, 1 node</li>
