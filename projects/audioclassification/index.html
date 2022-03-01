@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Audio Classification</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="../../taylorStyle.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="light-mode">
+  <div id="mySidebar" class="sidebar">
+    <a href="#Summary">Summary</a>
+    <a href="#Background">Background</a>
+    <a href="#Data">Data</a>
+    <a href="#Preprocessing">Preprocessing</a>
+    <a href="#Model">Model</a>
+  </div>
+
+  <div class="main">
+    
+    <h2 id="Summary">Summary</h2>
+    <p>
+      <ul>
+        <li>Collected 200,000 English and Japanese sentences</li>
+        <li>Performed principal component analysis based on letter frequency</li>
+        <li>Trained a logistic regression model</li>
+        <li>Obtained a classification accuracy of <strong>97%</strong></li>
+      </ul>
+      <img class="plot" src="images/decision_logreg_test.png"></img>
+    </p>
+    <h2 id="Background">Background</h2>
+    <p>
+      The goal of this project is to use deep learning and classify audio into two different languages, English and Japanese.
+      Language classification, and audio classification in general, is a topic that is used is many applications, including IoT devices, translators, and more.
+      As the world becomes more connected the need for natural langugage processing (NLP) is becoming more and more necessary.
+      This project will go over through some of the fundamental principals of audio classification when building a model.
+    </p>
+
+    <h2 id="Data">Data</h2>
+    <h3>Collection</h3>
+    <p>
+      For this project a large set of labeled audio is needed to train.
+      There are many free resources online that give audio in specific languages. 
+      I collected Japanese audio from the open source audio website <a href="http://aozoraroudoku.jp/">aozora</a> and english audio books from the website <a href="https://librivox.org">librivox</a> 
+    </p>
+
+    <h3>Data Cleaning</h3>
+    <p>
+      The raw audio needs to be standardized. Some of the audiobooks are at different volumes, rates, lengths, and channels.
+      I chose a 4.0 second clip as the size of the audio to process. This smaller clip sizes were tested, but yielded significantlly worse results.
+      For each clip, I performed the following:
+      <ul>
+        <li>Resampling to 22050 hz using  <a href="https://www.tensorflow.org/io/api_docs/python/tfio/audio/resample">tfio.audio.resample</a></li>
+        <li>Normalizing the sample values to fall between 0 and 1</li>
+        <li>Combine all channels into one channel</li>
+      </ul>
+    </p>
+
+    <h2 id="Preprocessing">Preprocessing</h2>
+    <p>
+      Because of the length and the quantity of the audio files, it would not be feasible to load all of the samples at once for training.
+      Therefore, data generators were built to load one batch of audio at a time. 
+      A generator class was subclassed from the keras.utils.Sequence class in tensorflow. 
+      This class takes in a pandas dataframe with the file path, clip starting time, and metadata of the audiobook.
+      It lazy loads the audio file and extracts only the sample used. 
+      After cleaning the sample as described above, the sample is converted into a spectrogram using <a href='https://en.wikipedia.org/wiki/Short-time_Fourier_transform'>Short-time Fourier transform</a>.
+      The number of fft bins, window size, and hop length were all treated as hyperparameters to be optimized later. 
+      This resulting spectrogram was then converted to a log-mel-spectrogram, a system more useful for differentiating human speech.
+      The resulting spectrogram is then used as the input to the model. 
+    </p>
+
+    <h2 id="Model">Model</h2>
+    <p>
+      A deep learning convolutional neural network (CNN) was used as the model. 
+      The input is a 2D mel-spectrogram and the output is a binary classifier,
+      The model consists of:
+      <ul>
+        <li>2 \times Conv2D + MaxPooling2D, 4 filters, 3\times3 kernel</li>
+        <li>2 \times Conv2D + MaxPooling2D, 8 filters, 3\times3 kernel</li>
+        <li>2 \times Conv2D + MaxPooling2D, 16 filters, 3\times3 kernel</li>
+        <li>Flattening </li>
+        <li>Dense layer, 64 nodes </li>
+        <li>Output layer, 1 node</li>
+      </ul>
+    </p>
+    <br>
+    <p>
+
+
+
+  </div>
+</body>
+
+</html>
