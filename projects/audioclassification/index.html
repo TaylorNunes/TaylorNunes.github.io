@@ -63,7 +63,7 @@
       The raw audio needs to be standardized. Some of the audiobooks are at different volumes, rates, lengths, and channels.
       Longer audio has to be cut down and shorter audio needs to be padded with silence.
       To minimize both of these, the distribution of audio length of the first 1000 samples was looked at.
-      <img class='plot' src="'images/length_distribution.png">
+      <img class='plot' src="images/length_distribution.png">
       I chose 4.0 seconds as the clip length to convert audio to.
       This is nearly in the center of both languages.
       To better augment the data, the padding was randomly split between the front and the end of the audio, and the cuts were taken at random locations for each sample. 
