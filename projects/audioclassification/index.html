@@ -34,8 +34,8 @@
         <li>Audio conversion to mel spectrograms</li>
         <li>Convolutional neural network on mel spectrograms</li>
         <li>Hyperparameter tuning for optimization</li>
+        <li>Classification accuracy of 95%</li>
       </ul>
-      <img class="plot" src="images/decision_logreg_test.png"></img>
     </p>
     <h2 id="Background">Background</h2>
     <p>
@@ -49,15 +49,25 @@
     <h3>Collection</h3>
     <p>
       For this project a large set of labeled audio is needed to train.
-      There are many free resources online that give audio in specific languages. 
-      I collected Japanese audio from the open source audio website <a href="http://aozoraroudoku.jp/">aozora</a> and english audio books from the website <a href="https://librivox.org">librivox</a> 
+      Originally a series of audio books was used to train the model.
+      This was supplemented by open source audio books from <a href="http://aozoraroudoku.jp/">aozora</a> and <a href="https://librivox.org">librivox</a>.
+      One issue when training from audiobooks is that all samples of audio from the book have similar features. 
+      For example, if all Japanese audio came from one book and all English from another, then a machine learning model would not have to learn the languages but instead would only have to learn the voice of the speaker or the tone. 
+      This would hinder generalization to other audio sources.
+      The audio source was then changed to the <a href="https://commonvoice.mozilla.org/">Common Voice</a> corpus which provides a large variety of audio clips from people in different languages.
+      At the time of testing, the English audio consisted on 2200 hours of audio, and the Japanese 46 hours. 
     </p>
 
     <h3>Data Cleaning</h3>
     <p>
       The raw audio needs to be standardized. Some of the audiobooks are at different volumes, rates, lengths, and channels.
-      I chose a 4.0 second clip as the size of the audio to process. This smaller clip sizes were tested, but yielded significantlly worse results.
-      For each clip, I performed the following:
+      Longer audio has to be cut down and shorter audio needs to be padded with silence.
+      To minimize both of these, the distribution of audio length of the first 1000 samples was looked at.
+      <img class='plot' src="'images/length_distribution.png">
+      I chose 4.0 seconds as the clip length to convert audio to.
+      This is nearly in the center of both languages.
+      To better augment the data, the padding was randomly split between the front and the end of the audio, and the cuts were taken at random locations for each sample. 
+      For each clip, I then performed the following to further standardize:
       <ul>
         <li>Resampling to 22050 hz using  <a href="https://www.tensorflow.org/io/api_docs/python/tfio/audio/resample">tfio.audio.resample</a></li>
         <li>Normalizing the sample values to fall between 0 and 1</li>
@@ -70,10 +80,14 @@
       Because of the length and the quantity of the audio files, it would not be feasible to load all of the samples at once for training.
       Therefore, data generators were built to load one batch of audio at a time. 
       A generator class was subclassed from the keras.utils.Sequence class in tensorflow. 
-      This class takes in a pandas dataframe with the file path, clip starting time, and metadata of the audiobook.
-      It lazy loads the audio file and extracts only the sample used. 
-      After cleaning the sample as described above, the sample is converted into a spectrogram using <a href='https://en.wikipedia.org/wiki/Short-time_Fourier_transform'>Short-time Fourier transform</a>.
-      The number of fft bins, window size, and hop length were all treated as hyperparameters to be optimized later. 
+      This class takes in a pandas dataframe with the file paths and outputs batches of mel spectrograms for the model to use.
+      
+      The generator loads a preprocessing class that performs the cleaning as stated in the previous section.
+      It then converts the audio to a spectrogram using <a href='https://en.wikipedia.org/wiki/Short-time_Fourier_transform'>Short-time Fourier transform</a>.
+      The number of fft points, window size, and hop length need to be chosen carefully.
+      If chosen poorly, the output spectrogram will be too small and will not be able to be run through the model.
+      It may also result in audio sections being counted more frequently than others or some not being counted at all.
+      The values were varied slighty when treated as hyperparameters later.
       This resulting spectrogram was then converted to a log-mel-spectrogram, a system more useful for differentiating human speech.
       The resulting spectrogram is then used as the input to the model. 
     </p>
@@ -82,20 +96,23 @@
     <p>
       A deep learning convolutional neural network (CNN) was used as the model. 
       The input is a 2D mel-spectrogram and the output is a binary classifier,
-      The model consists of:
+      The model consists of 6 convolutional layers and 6 pooling layers. 
+      The ouput of the CNN head was flattened and fed into a dense layer before being fed into the output layer.
       <ul>
-        <li>2 \(\times\) Conv2D + MaxPooling2D, 4 filters, 3\(\times\)3 kernel</li>
-        <li>2 \(\times\) Conv2D + MaxPooling2D, 8 filters, 3\(\times\)3 kernel</li>
-        <li>2 \(\times\) Conv2D + MaxPooling2D, 16 filters, 3\(\times\)3 kernel</li>
+        <li>Conv2D + MaxPooling2D, 16 filters, 3\(\times\)3 kernel</li>
+        <li>Conv2D + MaxPooling2D, 32 filters, 3\(\times\)3 kernel</li>
+        <li>Conv2D + MaxPooling2D, 64 filters, 3\(\times\)3 kernel</li>
+        <li>Conv2D + MaxPooling2D, 128 filters, 3\(\times\)3 kernel</li>
+        <li>Conv2D + MaxPooling2D, 265 filters, 3\(\times\)3 kernel</li>
+        <li>Conv2D + MaxPooling2D, 512 filters, 3\(\times\)3 kernel</li>
         <li>Flattening </li>
-        <li>Dense layer, 64 nodes </li>
+        <li>Dense layer, 1024 nodes </li>
+        <li>Dropout layer, 20%</li>
         <li>Output layer, 1 node</li>
       </ul>
+      <img class="plot" src="images/model.png">
     </p>
     <br>
-    <p>
-
-
 
   </div>
 </body>
