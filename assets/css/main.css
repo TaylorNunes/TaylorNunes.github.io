@@ -1,0 +1,147 @@
+h1 {
+    size: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+canvas { 
+  padding: 0;
+  margin: auto;
+  display: block;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #303030;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: #D3D3D3;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar img {
+  display: block;
+  border-radius: 50%;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main{
+  margin-left: 250px;
+  padding: 50px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.main h1{
+  font-size: 50px;
+}
+
+.main h2{
+  font-size: 40px;
+}
+
+.main h3{
+  font-size: 30px;
+}
+
+.main a{
+  text-decoration: underline;
+  color: #555;
+}
+
+.plot{
+  display: block;
+  max-width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .sidebar{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  .main{
+    margin-left: 0px;
+    font-size: 20px;
+    padding: 20px;
+  }
+  .main h1{
+    font-size: 40px;
+  }
+  .main h2{
+    font-size: 30px;
+  }
+  .main h3{
+    font-size: 20px;
+  }
+  .plot{
+    max-width: 100%;
+  }
+}
+.project{
+  text-decoration: underline;
+}
+
+.project a:hover{
+  color: #505050;
+}
+
+hr.round {
+  border-top: 2px solid #000000;   
+  border-radius: 1px; 
+}
+
+.icon {
+  padding: 3px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+table.clean{
+  margin-left: auto;
+  margin-right: auto;    text-align: center;
+  position: relative;
+  border: 0;
+  margin: auto;
+  max-width: 600px;
+}
+
+body.dark-mode{
+  background-image:  url("dark1.png");
+  background-repeat: repeat -xy;
+  color: white; 
+}
+
+a.dark-mode:hover{
+  color: #424242;
+}
+
+body.light-mode{
+  background-image:  url("light1.png");
+  background-repeat: repeat -xy;
+  color: black;
+}

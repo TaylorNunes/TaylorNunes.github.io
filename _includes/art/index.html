@@ -1,0 +1,121 @@
+
+<head>
+  <body class="dark-mode">       
+      <h1 align="center"> Pixel Art</h1>
+      <div align="center">
+        Height (px): <input type=text id="picheight" value="20" min="1" max="4000" max-width="20px"><br>
+        Width  (px): <input type=text id="picwidth" value="20" min="1" max="4000" max-width="50px"><br>
+        <input type="button" value="Set Dimensions" id="setButton" onclick="initializePicture()" padding="5px 5px 5px 5px"><br><br>
+        
+        <script>
+          let screenDim = Math.min(screen.width-25, screen.height-25)
+          let startW = Math.min(400, screenDim);
+          let startH = Math.min(400, screenDim);
+          document.getElementById("picwidth").value = startW;
+          document.getElementById("picheight").value = startH;
+        </script>
+
+        Speed: <input type="range" min="1" max="1000" value="200" class="slider" id="plotSpeed" onchange="changeSpeed()"><br>
+      </div>
+      <br>
+      <canvas id="field" style="border: 10px solid #424242;"></canvas>
+      <div align="center">
+        <input type=button value="Start" onclick="runArt()" padding="5px 5px 5px 5px">
+        <input type=button value="Reset" onclick="resetArt()" padding="5px 5px 5px 5px"><br>
+      </div>
+  <script src="canvas.js"></script>
+  <script src="artist.js"></script>
+  <script src="functions.js"></script>
+
+
+  <script>
+
+    const fieldCanvas = new Canvas(document.getElementById("field"));
+        let picHeight, picWidth, fieldArtist, fieldImgData;
+          let maxW = 4000;
+          let maxH = 4000;
+          let minW = 1;
+          let minH = 1;
+          
+          let speed = 200;
+          function initializePicture(){
+            picHeight = document.getElementById("picheight").value;
+            picWidth = document.getElementById("picwidth").value;
+            if (picHeight > maxH){
+              picHeight = maxH;
+              document.getElementById("picheight").value = maxH;
+            }
+            if (picWidth > maxW){
+              picWidth = maxW;
+              document.getElementById("picwidth").value = maxW;
+            }
+            if (picHeight < minH){
+              picHeight = minH;
+              document.getElementById("picheight").value = minH;
+            }
+            if (picWidth < minW){
+              picWidth = minW;
+              document.getElementById("picwidth").value = minW;
+            }
+            fieldCanvas.resize(picWidth,picHeight);
+      fieldArtist = new Artist(fieldCanvas.canvas.width,
+                          fieldCanvas.canvas.height,0,0,0,0);            
+      fieldCanvas.fillAll("black");
+      fieldImgData = fieldCanvas.ct.getImageData(0,0,
+                            fieldCanvas.canvas.width,fieldCanvas.canvas.height);
+          }
+          let isFinished = true;
+          let isForceStop = false;
+
+          initializePicture();
+          
+          let runningAnimation;
+    function updateArt(){
+            if (!fieldArtist.isPixelColored.every(Boolean)){
+              for (let isp=0; isp<speed; isp++){  
+                fieldArtist.changePixel();
+                fieldArtist.drawPixel(fieldImgData);
+                if (fieldArtist.isPixelColored.every(Boolean)){
+                    console.log("finished!");
+                    isFinished=true;
+                    cancelAnimationFrame(runningAnimation);
+                    break;
+
+                }
+              }
+              fieldCanvas.ct.putImageData(fieldImgData,0,0);
+              
+              if(!isFinished&&!isForceStop){
+                runningAnimation = requestAnimationFrame(updateArt);
+              }
+      }
+          }
+          
+          function runArt(){
+      document.getElementById("picheight").disabled = true;
+            document.getElementById("picwidth").disabled = true;
+            document.getElementById("setButton").disabled = true;
+            isForceStop=false;
+            isFinished=false;
+            updateArt();
+          }
+
+          function resetArt(){
+            isForceStop = true;
+            fieldArtist.reset();
+            isFinished=true
+            fieldCanvas.fillAll("black");
+            fieldImgData = fieldCanvas.ct.getImageData(0,0,
+                            fieldCanvas.canvas.width,fieldCanvas.canvas.height);
+            document.getElementById("picheight").disabled = false;
+            document.getElementById("picwidth").disabled = false;
+            document.getElementById("setButton").disabled = false;
+          }
+
+          function changeSpeed(){
+            speed = document.getElementById("plotSpeed").value;
+          }
+    
+          
+  </script>
+</body>
