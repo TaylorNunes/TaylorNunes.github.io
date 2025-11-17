@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Taylor Nunes</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content in Home on Taylor Nunes</description>
+    <title>Projects on Taylor Nunes</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Taylor Nunes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web Application</title>
       <link>http://localhost:1313/projects/web-application/</link>
@@ -28,20 +28,6 @@
       <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/data-dashboard/</guid>
       <description>&lt;h1 id=&#34;data-analytics-dashboard&#34;&gt;Data Analytics Dashboard&lt;/h1&gt;&#xA;&lt;p&gt;A comprehensive dashboard for data visualization and analysis.&lt;/p&gt;&#xA;&lt;h2 id=&#34;project-goals&#34;&gt;Project Goals&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Visualize large datasets&lt;/li&gt;&#xA;&lt;li&gt;Provide interactive charts&lt;/li&gt;&#xA;&lt;li&gt;Real-time data updates&lt;/li&gt;&#xA;&lt;li&gt;Export capabilities&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;implementation&#34;&gt;Implementation&lt;/h2&gt;&#xA;&lt;p&gt;The dashboard was built using:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt; for data processing&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;D3.js&lt;/strong&gt; for interactive visualizations&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt; for data storage&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Flask&lt;/strong&gt; for the web framework&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;&#xA;&lt;p&gt;The dashboard successfully processes over 1M data points and provides real-time insights to stakeholders.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;&#xA;&lt;p&gt;Tell your story here. Share your background, interests, and what makes you unique.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Contact</title>
-      <link>http://localhost:1313/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/contact/</guid>
-      <description>&lt;h1 id=&#34;contact-me&#34;&gt;Contact Me&lt;/h1&gt;&#xA;&lt;p&gt;Feel free to reach out to me through the following channels:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Email: &lt;a href=&#34;mailto:your.email@example.com&#34;&gt;your.email@example.com&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;LinkedIn: &lt;a href=&#34;https://linkedin.com/in/yourprofile&#34;&gt;Your LinkedIn Profile&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/yourusername&#34;&gt;Your GitHub Profile&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>
