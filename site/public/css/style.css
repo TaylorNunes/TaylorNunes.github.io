@@ -1,0 +1,299 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 20px;
+}
+
+/* Banner section */
+.site-banner {
+    width: 100%;
+    min-height: 150px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.banner-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 20px 1.5rem 20px;
+    text-align: left;
+}
+
+.banner-image {
+    max-width: 100%;
+    max-height: 225px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.banner-animation {
+    min-height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-text {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 800px;
+    margin: 1rem 0 0 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.banner-text h1,
+.banner-text h2,
+.banner-text h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.banner-text p {
+    margin-bottom: 1rem;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Example animation styles for floating circles */
+.animated-banner {
+    position: relative;
+    width: 100%;
+    height: 112px;
+    overflow: hidden;
+}
+
+.floating-circle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-circle.delay-1 {
+    animation-delay: -2s;
+    left: 30%;
+    background: rgba(255,255,255,0.15);
+}
+
+.floating-circle.delay-2 {
+    animation-delay: -4s;
+    left: 60%;
+    background: rgba(255,255,255,0.1);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+/* Header */
+.site-header {
+    background: transparent;
+    border-bottom: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3rem;
+    padding: 0.75rem 0;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-align: left;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.nav-menu a:hover {
+    color: #fff;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Main content area */
+main {
+    flex: 1;
+}
+
+/* Content sections */
+.content, .single-page, .list-page {
+    padding: 4rem 0;
+}
+
+.content h1, .single-page h1, .list-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.content h2, .single-page h2, .list-page h2 {
+    font-size: 2rem;
+    margin: 2rem 0 1rem 0;
+    color: #333;
+}
+
+.content p, .single-page p, .list-page p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+/* Page list */
+.page-list {
+    margin-top: 3rem;
+}
+
+.page-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.page-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.page-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.page-item a {
+    text-decoration: none;
+    color: #007acc;
+}
+
+.page-item a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        gap: 0.5rem;
+        padding: 0.5rem 5px 0.5rem 5px;
+    }
+    
+    .site-title {
+        font-size: 1.2rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .site-banner {
+        min-height: 112px;
+    }
+    
+    .banner-content {
+        padding: 3rem 20px 0.75rem 20px;
+    }
+    
+    .banner-image {
+        max-height: 150px;
+    }
+    
+    .banner-text {
+        font-size: 1rem;
+    }
+}

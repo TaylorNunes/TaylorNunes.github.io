@@ -1,0 +1,12 @@
+name = "Taylor Personal"
+license = "MIT"
+licenselink = "https://github.com/TaylorNunes/TaylorNunes.github.io/blob/main/LICENSE"
+description = "A clean, minimal personal theme without blog features"
+homepage = "https://github.com/TaylorNunes/TaylorNunes.github.io"
+tags = ["personal", "portfolio", "minimal", "clean"]
+features = ["responsive"]
+min_version = "0.41.0"
+
+[author]
+  name = "Taylor Nunes"
+  homepage = "https://TaylorNunes.github.io/"

@@ -1,0 +1,21 @@
+{{ if .Site.Params.banner.enabled }}
+<section class="site-banner">
+    <div class="banner-content">
+        {{ if .Site.Params.banner.image }}
+            <img src="{{ .Site.Params.banner.image | absURL }}" alt="{{ .Site.Params.banner.alt | default "Banner Image" }}" class="banner-image">
+        {{ end }}
+        
+        {{ if .Site.Params.banner.animation }}
+            <div class="banner-animation" id="banner-animation">
+                {{ .Site.Params.banner.animation | safeHTML }}
+            </div>
+        {{ end }}
+        
+        {{ if .Site.Params.banner.text }}
+            <div class="banner-text">
+                {{ .Site.Params.banner.text | markdownify }}
+            </div>
+        {{ end }}
+    </div>
+</section>
+{{ end }}

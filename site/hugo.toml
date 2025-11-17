@@ -1,0 +1,26 @@
+baseURL = "https://TaylorNunes.github.io/"
+languageCode = "en-us"
+title = "Taylor Nunes"
+theme = "taylor-personal"
+
+[params]
+subtitle = "Your personal tagline here"
+description = "Taylor Nunes' personal website"
+
+[params.banner]
+enabled = true
+# Option 1: Use an image
+# image = "images/banner.jpg"
+# alt = "Banner Image"
+
+# Option 2: Use text content
+# text = "Welcome to my digital space"
+
+# Option 3: Use custom HTML/CSS animation (example)
+# animation = '''
+# <div class="animated-banner">
+#   <div class="floating-circle"></div>
+#   <div class="floating-circle delay-1"></div>
+#   <div class="floating-circle delay-2"></div>
+# </div>
+# '''
