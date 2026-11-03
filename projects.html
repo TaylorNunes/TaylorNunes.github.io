@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Taylor C. Nunes</title>
+<meta name="description" content="Projects by Taylor C. Nunes: language-learning tools, math and physics experiments, and generative art.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-season="autumn">
+
+<header class="scene" id="scene" aria-label="Seasonal banner of maples and white pines in front of rolling ridges">
+  <svg id="art" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="topbar">
+    <a class="brand" href="index.html">TCN</a>
+    <div class="right">
+      <nav aria-label="Pages">
+        <a href="index.html">About</a><a href="experience.html">Experience</a><a href="projects.html" aria-current="page">Projects</a>
+      </nav>
+      <div class="seasons" role="group" aria-label="Change season">
+        <button data-s="auto" title="Follow today's date">Today</button>
+        <button data-s="spring" title="Spring">🌸</button>
+        <button data-s="summer" title="Summer">☀️</button>
+        <button data-s="autumn" title="Autumn">🍁</button>
+        <button data-s="winter" title="Winter">❄️</button>
+        <input id="prog" type="range" min="0" max="1" step="0.01" aria-label="How far into the season">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <h1 class="page-title">Projects</h1>
+    <p class="sub">Things I build in my own time: language-learning tools, side experiments in math and physics, and generative art.</p>
+  </div>
+
+  <section id="language">
+    <p class="eyebrow">Language learning</p>
+    <h2>Language tools</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Szókert</h3>
+        <p>A Hungarian dictionary app in the style of Takoboto, built to make looking words up while studying fast and pleasant.</p>
+        <div class="tags"><span class="tag">App</span><span class="tag">Hungarian</span></div>
+        <div class="card-links"><a href="#" class="todo">Link</a></div>
+      </article>
+      <article class="card">
+        <span class="status">In progress</span>
+        <h3>Chinese Dictionary</h3>
+        <p>A Chinese dictionary app in the same spirit, building on the design of Szókert.</p>
+        <div class="tags"><span class="tag">App</span><span class="tag">Chinese</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ideas">
+    <p class="eyebrow">Experiments &amp; ideas</p>
+    <h2>Math, physics &amp; art</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Idealist</h3>
+        <p><span class="todo">One or two lines on what Idealist is and does.</span></p>
+        <div class="tags"><span class="tag">Web</span></div>
+        <div class="card-links"><a href="#" class="todo">Link</a></div>
+      </article>
+      <article class="card">
+        <span class="status">Coming soon</span>
+        <h3>Base-12 Number System</h3>
+        <p>A number system built on twelve instead of ten. Full write-up coming soon.</p>
+        <div class="tags"><span class="tag">Math</span><span class="tag">Write-up</span></div>
+        <div class="card-links"><span class="soon">Write-up coming soon</span></div>
+      </article>
+      <article class="card">
+        <span class="status">Planned</span>
+        <h3>Bell's Theorem Simulation</h3>
+        <p>A simulation of a Bell-test experiment, to show how quantum correlations break the limit that any local hidden-variable theory must obey.</p>
+        <div class="tags"><span class="tag">Physics</span><span class="tag">Simulation</span></div>
+        <div class="card-links"><span class="soon">Coming soon</span></div>
+      </article>
+      <article class="card">
+        <h3>Generative Art</h3>
+        <p>Pixel-by-pixel artwork drawn by a random-walk algorithm in JavaScript. Set a size and watch it paint.</p>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Canvas</span></div>
+        <div class="card-links"><a href="Art/index.html">Try it →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <h2>Let's talk</h2>
+    <p>I'm open to <span class="todo">roles / collaborations you want</span>. The quickest way to reach me is email.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:taylorcnunes@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/taylor-nunes-090b35114/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/TaylorNunes" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="seasons foot" role="group" aria-label="Change season">
+    <button data-s="auto" title="Follow today's date">Today</button><button data-s="spring" title="Spring">🌸</button><button data-s="summer" title="Summer">☀️</button><button data-s="autumn" title="Autumn">🍁</button><button data-s="winter" title="Winter">❄️</button>
+  </div>
+  <p>© <span id="yr"></span> Taylor C. Nunes · <span id="seasonNote"></span></p>
+</footer>
+<script src="banner.js"></script>
+</body>
+</html>

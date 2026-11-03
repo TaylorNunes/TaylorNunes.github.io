@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experience — Taylor C. Nunes</title>
+<meta name="description" content="Work experience, research and education of Taylor C. Nunes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-season="autumn">
+
+<header class="scene" id="scene" aria-label="Seasonal banner of maples and white pines in front of rolling ridges">
+  <svg id="art" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="topbar">
+    <a class="brand" href="index.html">TCN</a>
+    <div class="right">
+      <nav aria-label="Pages">
+        <a href="index.html">About</a><a href="experience.html" aria-current="page">Experience</a><a href="projects.html">Projects</a>
+      </nav>
+      <div class="seasons" role="group" aria-label="Change season">
+        <button data-s="auto" title="Follow today's date">Today</button>
+        <button data-s="spring" title="Spring">🌸</button>
+        <button data-s="summer" title="Summer">☀️</button>
+        <button data-s="autumn" title="Autumn">🍁</button>
+        <button data-s="winter" title="Winter">❄️</button>
+        <input id="prog" type="range" min="0" max="1" step="0.01" aria-label="How far into the season">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <h1 class="page-title">Experience</h1>
+    <p class="sub">Work, research and education. For the full history, see my <a href="https://www.linkedin.com/in/taylor-nunes-090b35114/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </div>
+
+  <section id="work">
+    <p class="eyebrow">Work</p>
+    <h2>Work experience</h2>
+    <ol class="timeline">
+      <li>
+        <div class="role"><h3>Yaqumo Inc.</h3><span class="when">Feb 2026 – Oct 2026</span></div>
+        <p class="org">Kyoto, Japan · Hybrid</p>
+        <div class="steps">
+          <div><strong>Computational Technology Team Leader</strong><span class="when">Apr 2026 – Oct 2026</span></div>
+          <div><strong>Software Engineer</strong><span class="when">Feb 2026 – Apr 2026</span></div>
+        </div>
+        <ul><li><span class="todo">What you built or led, and the result</span></li></ul>
+      </li>
+      <li>
+        <div class="role"><h3>Metro Weather (メトロウェザー)</h3><span class="when">Nov 2023 – Jan 2026</span></div>
+        <p class="org">Uji, Kyoto, Japan</p>
+        <div class="steps">
+          <div><strong>Lead Data Scientist</strong><span class="when">May 2024 – Jan 2026</span></div>
+          <div><strong>Data Scientist</strong><span class="when">Nov 2023 – May 2024</span></div>
+        </div>
+        <ul><li><span class="todo">What you built or owned, and the result</span></li></ul>
+      </li>
+      <li>
+        <div class="role"><h3>Data Engineer I</h3><span class="when">Oct 2022 – Oct 2023</span></div>
+        <p class="org">Raytheon Intelligence &amp; Space · Sterling, Virginia</p>
+        <ul><li><span class="todo">What you built or owned, and the result</span></li></ul>
+      </li>
+      <li>
+        <div class="role"><h3>Research Student</h3><span class="when">Apr 2019 – Sep 2021</span></div>
+        <p class="org">Osaka University · J-PARC E14 "KOTO" experiment</p>
+        <ul><li>Developed physics analysis software and a data collection and visualization pipeline, and analyzed detector performance. <a href="#education">More below ↓</a></li></ul>
+      </li>
+      <li>
+        <div class="role"><h3>Associate Project Engineer</h3><span class="when">Jun 2018 – Mar 2019</span></div>
+        <p class="org">Symbrium, Inc. · Raleigh, North Carolina</p>
+        <ul><li>Further developed test-machine code and performed statistical analyses to determine gear properties.</li></ul>
+      </li>
+      <li>
+        <div class="role"><h3>Engineering Co-op</h3><span class="when">Jan 2017 – Aug 2017</span></div>
+        <p class="org">ATI Industrial Automation · Apex, North Carolina</p>
+        <ul><li>Created a force-torque sensor showcase and improved the design of a manufacturing workstation.</li></ul>
+      </li>
+      <li>
+        <div class="role"><h3>Engineering Co-op</h3><span class="when">May 2016 – Aug 2016</span></div>
+        <p class="org">Moen Incorporated · Sanford, North Carolina</p>
+        <ul><li>Performed statistical analysis of machine parts and improved manufacturing workflow design.</li></ul>
+      </li>
+    </ol>
+  </section>
+
+  <section id="education">
+    <p class="eyebrow">Education &amp; research</p>
+    <h2>Education</h2>
+    <ol class="timeline">
+      <li>
+        <div class="role"><h3>M.S. Physics</h3><span class="when">2019 – 2021</span></div>
+        <p class="org">Osaka University · Yamanaka Lab, KOTO experiment</p>
+        <p>KOTO is a particle-physics experiment at J-PARC that searches for an extremely rare decay of the neutral kaon, using a high-intensity proton beam. A deviation from the predicted rate would point to physics beyond the Standard Model.</p>
+        <ul>
+          <li><strong>Detector development:</strong> led development of a low-mass, in-beam detector for incoming charged particles, from materials research and mechanical/electronic design through testing, installation and performance tuning.</li>
+          <li><strong>Software &amp; data:</strong> wrote data acquisition, monitoring and analysis software in Python and C++ (ROOT), with data pipelines and storage on Linux.</li>
+          <li><strong>Signal processing:</strong> developed algorithms for event-by-event noise classification and for separating overlapping peaks in digital waveforms.</li>
+          <li><strong>Talks:</strong> presented at the Physical Society of Japan meetings in 2020 and 2021 on waveform analysis and on the charged-particle detector.</li>
+        </ul>
+        <p class="card-links" style="margin-top:10px"><a href="documents/Taylor_Nunes_Thesis.pdf">Read my thesis (PDF) →</a></p>
+      </li>
+      <li>
+        <div class="role"><h3>B.S. Mechanical Engineering</h3><span class="when">2014 – 2018</span></div>
+        <p class="org">North Carolina State University</p>
+        <p class="detail"><span class="todo">Optional: senior design project, focus area or anything else worth a line.</span></p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow">Toolbox</p>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Programming</h3><div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">Linux</span></div></div>
+      <div><h3>Data</h3><div class="tags"><span class="tag">ROOT</span><span class="tag">Data pipelines</span><span class="tag">Signal processing</span><span class="tag">DAQ &amp; monitoring</span></div></div>
+      <div><h3>Engineering</h3><div class="tags"><span class="tag">Mechanical design</span><span class="tag">Detector electronics</span><span class="tag">Experimental design</span></div></div>
+      <div><h3>Languages</h3><div class="tags"><span class="tag">English</span><span class="tag">Japanese <span class="todo">level</span></span></div></div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <h2>Let's talk</h2>
+    <p>I'm open to <span class="todo">roles / collaborations you want</span>. The quickest way to reach me is email.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:taylorcnunes@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/taylor-nunes-090b35114/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/TaylorNunes" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="seasons foot" role="group" aria-label="Change season">
+    <button data-s="auto" title="Follow today's date">Today</button><button data-s="spring" title="Spring">🌸</button><button data-s="summer" title="Summer">☀️</button><button data-s="autumn" title="Autumn">🍁</button><button data-s="winter" title="Winter">❄️</button>
+  </div>
+  <p>© <span id="yr"></span> Taylor C. Nunes · <span id="seasonNote"></span></p>
+</footer>
+<script src="banner.js"></script>
+</body>
+</html>
